@@ -1,0 +1,18 @@
+{
+  "description": "PowerDNS CLI application",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "flatiron": "0.1.14",
+    "mysql": "0.9.5"
+  },
+  "devDependencies": {
+    "cli-easy": "0.1.0",
+    "vows": "0.6.1"
+  },
+  "scripts": {
+    "test": "vows --spec",
+    "start": "node app.js"
+  },
+  "name": "node-pdns"
+}
