@@ -43,27 +43,25 @@ app.use(flatiron.plugins.cli, {
 
 app.use(require('flatiron-cli-config'));
 
-if(!module.parent) {
-  app.start(function(err, result) {
-    if(err) {
-      console.log(err.message);
+app.start(function(err, result) {
+  if(err) {
+    console.log(err.message);
+  }
+  if(result) {
+    if(result.affectedRows !== undefined) {
+      console.log("Affected rows : "+result.affectedRows);
     }
-    if(result) {
-      if(result.affectedRows !== undefined) {
-        console.log("Affected rows : "+result.affectedRows);
-      }
-      if(result.message) {
-        console.log(message);
-      }
-      if(typeof result == 'object' && result.constructor == Array) {
-        printArray(result);
-      } else if(typeof result == 'string') {
-        console.log(result);
-      }
+    if(result.message) {
+      console.log(message);
     }
-    process.exit(1);
-  });
-}
+    if(typeof result == 'object' && result.constructor == Array) {
+      printArray(result);
+    } else if(typeof result == 'string') {
+      console.log(result);
+    }
+  }
+  process.exit(1);
+});
 
 function printArray(arr) {
   if(arr.length == 0) return;
