@@ -21,7 +21,7 @@ CLI for PowerDNS
 ## Use adapter directly
 
 ``` js
-var pdns = require('pdns');
+var pdns = require('pdns')('mysql');
 pdns.init({db: "powerdns", user: "root", password: "mysqlpass"}, function(err) {
   pdns.domains.list(function(err, domains) { });
   pdns.domains.add({name: "test.com", function(err, res) { });
