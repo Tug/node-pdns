@@ -1,18 +1,29 @@
 {
+  "name": "pdns",
   "description": "PowerDNS CLI application",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.2",
+  "author": "Tugdual de Kerviler <dekervit@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Tug/node-pnds.git"
+  },
   "dependencies": {
     "flatiron": "0.1.14",
-    "mysql": "0.9.5"
+    "mysql": "0.9.5",
+    "step": "0.0.5",
+    "cliff": "0.1.7",
+    "flatiron-cli-config": "0.1.2"
   },
   "devDependencies": {
     "cli-easy": "0.1.0",
     "vows": "0.6.1"
   },
+  "bin": {
+    "pdns": "./bin/pdns"
+  },
+  "main": "./lib/index.js",
   "scripts": {
     "test": "vows --spec",
     "start": "node app.js"
-  },
-  "name": "node-pdns"
+  }
 }

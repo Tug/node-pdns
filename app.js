@@ -4,12 +4,11 @@ var flatiron = require('flatiron'),
     cliff = require('cliff');
 
 app.config.file({ file: path.join(__dirname, 'config', 'config.json') });
-
 app.use(flatiron.plugins.cli, {
   source: path.join(__dirname, 'lib', 'commands'),
   usage: [
 "domains [list|add|remove]",
-"domains list : List all domains",
+"domains list [<name> [<type> [<ttl> [<created_at>]]]] : List all domains",
 "domains add <name> <type> <content> [<ttl>] [--soa [<soa_content>]] [--mx [<mx_content>]] [--ns [<ns_content>]] : Add a new domain",
 "\t --soa : Generate a default SOA record",
 "\t --soa=<soa_content> : Generate a SOA record using the soa_content parameter",
@@ -42,6 +41,8 @@ app.use(flatiron.plugins.cli, {
   }
 });
 
+app.use(require('flatiron-cli-config'));
+
 app.start(function(err, result) {
   if(err) {
     console.log(err.message);
@@ -54,12 +55,25 @@ app.start(function(err, result) {
       console.log(message);
     }
     if(typeof result == 'object' && result.constructor == Array) {
-      console.log(result);
-      cliff.putObjectRows('data', result, ['id', 'name', 'type']);
+      printArray(result);
     } else if(typeof result == 'string') {
       console.log(result);
     }
   }
   process.exit(1);
 });
+
+function printArray(arr) {
+  if(arr.length == 0) return;
+  var keys = getKeys(arr[0]);
+  cliff.putObjectRows('data', arr, keys);
+}
+
+function getKeys(obj) {
+  var acc = [];
+  for(var k in obj) {
+    acc.push(k);
+  }
+  return acc;
+}
 

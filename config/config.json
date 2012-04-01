@@ -1,8 +1,6 @@
 {
-  "adapter": {
-    "type": "mysql",
-    "db": "powerdns_development",
-    "user": "root",
-    "password": ""
-  }
+  "adapter": "mysql",
+  "db": "powerdns_development",
+  "user": "root",
+  "password": ""
 }
