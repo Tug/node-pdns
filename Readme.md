@@ -28,8 +28,8 @@ pdns.init({db: "powerdns", user: "root", password: "mysqlpass"}, function(err) {
   pdns.domains.remove({name: "test.com", function(err, res) { });
   
   pdns.records.list("test.com", function(err, records) { });
-  pdns.domains.add("test.com", {name: "ns1", type: "NS", content:"10.1.0.1"}, function(err, res) { });
-  pdns.domains.add("test.com", {name: "ns1"}, function(err, res) { });
+  pdns.records.add("test.com", {name: "ns1", type: "NS", content:"10.1.0.1"}, function(err, res) { });
+  pdns.records.remove("test.com", {name: "ns1"}, function(err, res) { });
 });
 ```
 
