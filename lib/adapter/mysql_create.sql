@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `domains` (
   `user_id` int(11) DEFAULT NULL,
   `notes` text,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
   KEY `index_domains_on_name` (`name`)
 );
 
@@ -28,8 +29,12 @@ CREATE TABLE IF NOT EXISTS `records` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`,`type`,`content`),
   KEY `index_records_on_domain_id` (`domain_id`),
   KEY `index_records_on_name` (`name`),
-  KEY `index_records_on_name_and_type` (`name`,`type`)
+  KEY `index_records_on_name_and_type` (`name`,`type`),
+  FOREIGN KEY (domain_id) REFERENCES domains(id) 
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
