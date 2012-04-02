@@ -21,16 +21,21 @@ CLI for PowerDNS
 ## Use adapter directly
 
 ``` js
-var pdns = require('pdns')('mysql');
-pdns.init({db: "powerdns", user: "root", password: "mysqlpass"}, function(err) {
-  pdns.domains.list(function(err, domains) { });
-  pdns.domains.add({name: "test.com", function(err, res) { });
-  pdns.domains.remove({name: "test.com", function(err, res) { });
-  
-  pdns.records.list("test.com", function(err, records) { });
-  pdns.records.add("test.com", {name: "ns1", type: "NS", content:"10.1.0.1"}, function(err, res) { });
-  pdns.records.remove("test.com", {name: "ns1"}, function(err, res) { });
-});
+var config = {
+  adapter: "mysql",
+  db: "powerdns_development",
+  user: "root",
+  password: "mysqlpass"
+};
+var pdns = require('pdns')(config);
+
+pdns.domains.list({}, {}, function(err, domains) {...});
+pdns.domains.add({name: "test.com"}, {soa:true, mx:true, ns:"10.1.0.1"}, function(err, res) {...});
+pdns.domains.remove({name: "test.com"}, {}, function(err, res) {...});
+
+pdns.records.list("test.com", {}, {}, function(err, records) {...});
+pdns.records.add("test.com", {name: "ns2", type: "A", content:"10.1.0.1"}, {}, function(err, res) {...});
+pdns.records.remove("test.com", {name: "ns2"}, {}, function(err, res) {...});
 ```
 
 

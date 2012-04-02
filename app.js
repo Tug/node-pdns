@@ -9,7 +9,7 @@ app.use(flatiron.plugins.cli, {
   usage: [
 "domains [list|add|remove]",
 "domains list [<name> [<type> [<ttl> [<created_at>]]]] : List all domains",
-"domains add <name> <type> <content> [<ttl>] [--soa [<soa_content>]] [--mx [<mx_content>]] [--ns [<ns_content>]] : Add a new domain",
+"domains add <name> [<type> [<ttl>]] [--soa [<soa_content>]] [--mx [<mx_content>]] [--ns [<ns_content>]] : Add a new domain",
 "\t --soa : Generate a default SOA record",
 "\t --soa=<soa_content> : Generate a SOA record using the soa_content parameter",
 "\t --mx : Generate a default MX record",
