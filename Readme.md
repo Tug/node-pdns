@@ -7,8 +7,11 @@ CLI for PowerDNS
     sudo npm install -g pdns
 
 
-## Configure
+## Configure for MySQL
 
+Create database "powerdns" in MySQL
+
+    sudo pdns config set db powerdns
     sudo pdns config set user <mysqluser>
     sudo pdns config set password <mysqlpass>
 
