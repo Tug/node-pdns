@@ -8,35 +8,35 @@ app.use(flatiron.plugins.cli, {
   source: path.join(__dirname, 'lib', 'commands'),
   usage: [
 "domains [list|add|remove]",
-"domains list [<name> [<type> [<ttl> [<created_at>]]]] : List all domains",
-"domains add <name> [<type> [<ttl>]] [--soa [<soa_content>]] [--mx [<mx_content>]] [--ns [<ns_content>]] : Add a new domain",
+"domains list [<name> [<type> [<ttl> [<created_at>]]]] : List all domains matching the parameters",
+"domains add <domain.tld> [<type> [<ttl>]] [--soa [<soa_content>]] [--mx [<mx_content>]] [--ns [<ns_content>]] : Add a new domain",
 "\t --soa : Generate a default SOA record",
-"\t --soa=<soa_content> : Generate a SOA record using the soa_content parameter",
+"\t --soa=<soa_content> : Generate a SOA record using <soa_content>",
 "\t --mx : Generate a default MX record",
-"\t --mx=<mx_content> : Generate an MX record using the mx_content parameter",
-"\t --ns=<ns_content> : Generate an NS record using the ns_content parameter",
+"\t --mx=<mx_content> : Generate an MX record using <mx_content>",
+"\t --ns : Generate a default NS record",
+"\t --ns=<ns_content> : Generate an NS record using <ns_content>",
 "domains remove <name> [<type> [<ttl> [<created_at> [updated_at]]]] : Remove all domains matching the parameters", 
 "",
-"records [list|add|remove]",
-"records list [<name> [<type> [<content>]]] --domain=<domain_name> : List all records for domain_name",
-"records add <name> <type> <content> [<ttl>] --domain=<domain_name> : Add a new record for domain_name",
-"records remove <name> [<type> [<content> [<ttl>]]] --domain=<domain_name> : Remove all records matching the parameters"
+"records [list|add|remove] [--domain|-d]",
+"records list [<name> [<type> [<content>]]] -d=<domain.tld> : List all records for domain_name matching the parameters",
+"records add <name> <type> <content> [<ttl>] -d=<domain.tld> : Add a new record for <domain.tld>",
+"records remove <name> [<type> [<content> [<ttl>]]] -d=<domain.tld> : Remove all records for <domain.tld> matching the parameters"
 ],
   argv: {
     domain: {
       alias: 'd',
-      description: 'Domain to use for records',
+      description: 'Domain to use for the records command',
       string: true
     },
     ns: {
-      description: 'NameServer ip when adding a new domain, name is "ns1.<domain_name>", must enter a value',
-      string: true
+      description: 'NameServer address when adding a new domain, default is "ns1.<domain.tld>"'
     },
     soa: {
-      description: 'Start of autority when adding a new domain, default is "ns1.<domain_name> admin@<domain_name> 2012032207 10800 7200 604800 10800"'
+      description: 'Start of autority when adding a new domain, default is "ns1.<domain.tld> admin@<domain.tld> <YYYYMMDD>01 10800 7200 604800 10800"'
     },
     mx: {
-      description: 'SMTP server when adding a new domain, default is "mail"'
+      description: 'SMTP server when adding a new domain, default is "mail.<domain.tld>"'
     },
   }
 });

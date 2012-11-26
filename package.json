@@ -1,14 +1,14 @@
 {
   "name": "pdns",
   "description": "PowerDNS CLI application",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Tugdual de Kerviler <dekervit@gmail.com>",
   "repository": {
     "type": "git",
     "url": "http://github.com/Tug/node-pnds.git"
   },
   "dependencies": {
-    "flatiron": "0.1.14",
+    "flatiron": "0.3.0",
     "mysql": "0.9.5",
     "step": "0.0.5",
     "cliff": "0.1.7",
