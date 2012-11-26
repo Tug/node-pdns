@@ -1,7 +1,7 @@
 {
   "name": "pdns",
   "description": "PowerDNS CLI application",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Tugdual de Kerviler <dekervit@gmail.com>",
   "repository": {
     "type": "git",
@@ -12,7 +12,6 @@
     "mysql": "0.9.5",
     "step": "0.0.5",
     "cliff": "0.1.7",
-    "dateformat": "1.0.3-1.2.3",
     "flatiron-cli-config": "0.1.2"
   },
   "devDependencies": {

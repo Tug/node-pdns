@@ -33,7 +33,7 @@ app.use(flatiron.plugins.cli, {
       description: 'NameServer address when adding a new domain, default is "ns1.<domain.tld>"'
     },
     soa: {
-      description: 'Start of autority when adding a new domain, default is "ns1.<domain.tld> admin@<domain.tld> <YYYYMMDD>01 10800 7200 604800 10800"'
+      description: 'Start of autority when adding a new domain, default is "ns1.<domain.tld> admin@<domain.tld> 0 10800 7200 604800 10800"'
     },
     mx: {
       description: 'SMTP server when adding a new domain, default is "mail.<domain.tld>"'
