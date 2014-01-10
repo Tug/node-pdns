@@ -15,6 +15,9 @@ Create database "powerdns" in MySQL
     sudo pdns config set user <mysqluser>
     sudo pdns config set password <mysqlpass>
 
+To connect on a remote MySQL server you can also set the host (default is "localhost:3306"):
+
+    sudo pdns config set host <host>
 
 ## Usage
 
