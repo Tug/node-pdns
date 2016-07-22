@@ -1,7 +1,7 @@
 {
   "name": "pdns",
   "description": "PowerDNS CLI application",
-  "version": "0.2.2",
+  "version": "0.3.2",
   "author": "Tugdual de Kerviler <dekervit@gmail.com>",
   "repository": {
     "type": "git",
